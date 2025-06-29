@@ -164,5 +164,7 @@ exec --no-startup-id xset -b
 exec_always --no-startup-id sh $HOME/.config/polybar/launch_polybar.sh
 exec_always feh --bg-scale "/home/sam/Pictures/wallpapers/others/mot4.png"
 
+bindsym $mod+x exec --no-startup-id bash -c 'gnome-screenshot -f /tmp/screen.png && xclip -selection clipboard -t image/png -i /tmp/screen.png'
+
 exec_always --no-startup-id autotiling -w 1 2 3 4 5 6 7 8 9
 exec xinput set-prop "MSFT0001:00 06CB:CE44 Touchpad" "libinput Tapping Enabled" 1
