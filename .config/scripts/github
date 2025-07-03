@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# 1. Get directory argument or default to current directory
+target_dir="${1:-.}"
+
+# 2. Make sure it's a git repo
+if ! git -C "$target_dir" rev-parse &>/dev/null; then
+    echo "❌ Not a Git repository: $target_dir"
+    exit 1
+fi
+
+# 3. Get the remote URL
+remote_url=$(git -C "$target_dir" remote get-url origin 2>/dev/null)
+
+if [[ -z "$remote_url" ]]; then
+    echo "❌ No remote origin found in: $target_dir"
+    exit 1
+fi
+
+# 4. Convert SSH to HTTPS if needed
+if [[ "$remote_url" =~ ^git@github\.com:(.+)\.git$ ]]; then
+    repo_path="${BASH_REMATCH[1]}"
+    web_url="https://github.com/$repo_path"
+elif [[ "$remote_url" =~ ^https://github\.com/(.+)\.git$ ]]; then
+    repo_path="${BASH_REMATCH[1]}"
+    web_url="https://github.com/$repo_path"
+else
+    echo "❌ Remote is not a GitHub repository:"
+    echo "$remote_url"
+    exit 1
+fi
+
+# 5. Open the URL in your browser
+echo " Opening: $web_url"
+xdg-open "$web_url" >/dev/null 2>&1 & disown

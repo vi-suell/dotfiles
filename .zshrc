@@ -42,5 +42,5 @@ MAILSYNC_MUTE=1
 
 eval "$(zoxide init zsh)"
 export PATH="$HOME/go/bin:$PATH"
-
+export PATH="$HOME/.config/scripts:$PATH"
 
