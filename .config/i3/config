@@ -138,21 +138,20 @@ mode "special" {
 
 bindsym $mod+z mode "special"
 
-# window colors
-client.focused #9b8d7f #9b8d7f #000000 #9b8d7f #9b8d7f
-client.focused_inactive #222222 #222222 #9b8d7f #222222 #222222
-client.unfocused #222222 #222222 #9b8d7f #222222 #222222
-
-
+# Turn off title and borders with the exception of the active window
+for_window [class=".*"] border pixel 1
+# client.focused          #ffffff #ffffff #ffffff #ffffff
+client.focused          #aaaaaa #aaaaaa #aaaaaa #aaaaaa
+client.unfocused        #000000 #000000 #000000 #000000
+client.focused_inactive #000000 #000000 #000000 #000000
+client.urgent           #ff0000 #ff0000 #ff0000 #ff0000
 
 # gaps
-
 gaps inner 5
 gaps outer 1
 workspace 5 gaps horizontal 150
 workspace 5 gaps vertical 50
 workspace 5 gaps inner 10
-for_window [class=".*"] border none
 
 exec --no-startup-id xfsettingsd --sm-client-disable
 exec --no-startup-id xfce4-power-manager
@@ -164,7 +163,13 @@ exec --no-startup-id xset -b
 exec_always --no-startup-id sh $HOME/.config/polybar/launch_polybar.sh
 exec_always feh --bg-scale "/home/sam/Pictures/wallpapers/others/mot4.png"
 
-bindsym $mod+x exec --no-startup-id bash -c 'gnome-screenshot -f /tmp/screen.png && xclip -selection clipboard -t image/png -i /tmp/screen.png'
-
+# Snipping Tool
+bindsym $mod+x exec flameshot gui
+# Hyprland Tiling Behaviour
 exec_always --no-startup-id autotiling -w 1 2 3 4 5 6 7 8 9 10
+# Enable Mousepad
 exec xinput set-prop "MSFT0001:00 06CB:CE44 Touchpad" "libinput Tapping Enabled" 1
+
+
+
+
