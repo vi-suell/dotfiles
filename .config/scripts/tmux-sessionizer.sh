@@ -3,9 +3,9 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/  ~/code/ ~/Documents/textfiles/ ~/Documents/Books/ -mindepth 1 -maxdepth 1 -type d | \
+    selected=$(find ~/code/ ~/code/uni/ ~/code/guided ~/documents/ovaults/  ~/documents/books/ -mindepth 1 -maxdepth 1 -type d | \
         sed "s|^$HOME/||" | \
-        sk --margin 10% --color="bw" 
+        fzf --margin 10% --color="bw" 
     )
     # Add home path back
     if [[ -n "$selected" ]]; then

@@ -23,7 +23,7 @@ return {
 			require("telescope").load_extension("fzf")
 
 			vim.keymap.set("n", "<space>t", require("telescope.builtin").help_tags)
-			vim.keymap.set("n", "<leader>f", require("telescope.builtin").find_files, { desc = "[S]earch [F]iles" })
+			vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "[S]earch [F]iles" })
 			vim.keymap.set("n", "<leader>d", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
 
 			vim.keymap.set(

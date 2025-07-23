@@ -1,3 +1,4 @@
+
 set $mod Mod4
 
 # Home row direction keys, like vim
@@ -11,7 +12,10 @@ set $term alacritty
 font pango:Monospace 8
 
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# Monitor Scaling
+exec --no-startup-id xrandr --output DisplayPort-0 --scale 1.25x1.25
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -117,10 +121,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
-        bindsym l resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym j resize shrink height 10 px or 10 ppt
-        bindsym h resize grow width 10 px or 10 ppt
+        bindsym l resize shrink width 2 px or 2 ppt
+        bindsym k resize grow height 2 px or 2 ppt
+        bindsym j resize shrink height 2 px or 2 ppt
+        bindsym h resize grow width 2 px or 2 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -139,7 +143,7 @@ mode "special" {
 bindsym $mod+z mode "special"
 
 # Turn off title and borders with the exception of the active window
-for_window [class=".*"] border pixel 1
+for_window [class=".*"] border pixel 3
 # client.focused          #ffffff #ffffff #ffffff #ffffff
 client.focused          #aaaaaa #aaaaaa #aaaaaa #aaaaaa
 client.unfocused        #000000 #000000 #000000 #000000
