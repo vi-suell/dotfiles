@@ -153,9 +153,6 @@ client.urgent           #ff0000 #ff0000 #ff0000 #ff0000
 # gaps
 gaps inner 5
 gaps outer 1
-workspace 5 gaps horizontal 150
-workspace 5 gaps vertical 50
-workspace 5 gaps inner 10
 
 exec --no-startup-id xfsettingsd --sm-client-disable
 exec --no-startup-id xfce4-power-manager

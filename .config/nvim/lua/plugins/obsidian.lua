@@ -42,7 +42,7 @@ return {
 				opts = { noremap = false, expr = true, buffer = true },
 			},
 		},
-
+		ui = { enable = false },
 		completion = {
 			nvim_comp = true,
 			min_chars = 2,
