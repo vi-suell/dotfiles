@@ -44,3 +44,5 @@ eval "$(zoxide init zsh)"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.config/scripts:$PATH"
 
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

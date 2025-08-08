@@ -1,3 +1,4 @@
+
 return {
 	{
 		-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
@@ -216,7 +217,10 @@ return {
 				rust_analyzer = {},
 				cssls = {},
 				ts_ls = {},
-
+				-- Marksman as my Markdown LSP
+				marksman = {},
+				-- Typst Lsp
+				tinymist = {},
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 				--
 				-- Some languages (like typescript) have entire language plugins that can be useful:
