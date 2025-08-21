@@ -27,6 +27,7 @@ return {
 			sync_install = false,
 			indent = { enable = true },
 			highlight = { enable = true },
+			auto_install = true,
 
 			incremental_selection = {
 				enable = true,
